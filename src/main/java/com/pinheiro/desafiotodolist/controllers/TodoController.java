@@ -22,6 +22,12 @@ public class TodoController {
         return service.findAll();
     }
 
+
+    @GetMapping(value = "/{id}")
+    Todo findById(@PathVariable Long id){
+        return service.findById(id);
+    }
+
     @PostMapping
     List<Todo> create(@RequestBody @Valid Todo obj){
         service.create(obj);

@@ -39,4 +39,13 @@ class DesafioTodolistApplicationTests {
 				.exchange()
 				.expectStatus().isBadRequest();
 	}
+
+	@Test
+	void testeFindAllTodos(){
+		webTestClient
+				.get()
+				.uri("/todos")
+				.exchange()
+				.expectStatus().isOk();
+	}
 }

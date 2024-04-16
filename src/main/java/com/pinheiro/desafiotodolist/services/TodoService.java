@@ -3,11 +3,11 @@ package com.pinheiro.desafiotodolist.services;
 import com.pinheiro.desafiotodolist.entities.Todo;
 import com.pinheiro.desafiotodolist.repositories.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TodoService {
@@ -20,6 +20,10 @@ public class TodoService {
                 Sort.by("name").ascending()
         );
         return repository.findAll(sort);
+    }
+
+    public Todo findById(Long id){
+        return repository.findById(id).orElseThrow();
     }
 
     public List<Todo> create(Todo todo){
