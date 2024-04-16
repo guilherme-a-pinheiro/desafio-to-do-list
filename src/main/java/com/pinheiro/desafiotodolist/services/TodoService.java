@@ -1,6 +1,7 @@
 package com.pinheiro.desafiotodolist.services;
 
 import com.pinheiro.desafiotodolist.entities.Todo;
+import com.pinheiro.desafiotodolist.entities.TodoDTO;
 import com.pinheiro.desafiotodolist.repositories.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -26,8 +27,9 @@ public class TodoService {
         return repository.findById(id).orElseThrow();
     }
 
-    public List<Todo> create(Todo todo){
-        repository.save(todo);
+    public List<Todo> create(TodoDTO dto){
+        Todo t1 = new Todo(dto);
+        repository.save(t1);
         return findAll();
     }
 

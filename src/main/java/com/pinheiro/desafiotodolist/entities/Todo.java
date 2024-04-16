@@ -30,6 +30,13 @@ public class Todo {
 
     public Todo(){}
 
+    public Todo(TodoDTO dto){
+        this.name = dto.name();
+        this.description = dto.description();
+        this.done = dto.done();
+        this.priority = dto.priority();
+    }
+
     public Todo(Long id, String name, String description, boolean done, int priority) {
         this.id = id;
         this.name = name;
