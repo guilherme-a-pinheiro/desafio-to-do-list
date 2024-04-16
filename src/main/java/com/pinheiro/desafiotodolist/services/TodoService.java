@@ -15,16 +15,16 @@ public class TodoService {
     @Autowired
     private TodoRepository repository;
 
-    public List<Todo> create(Todo todo){
-        repository.save(todo);
-        return findAll();
-    }
-
     public List<Todo> findAll(){
-        Sort sort = Sort.by("prority").descending().and(
+        Sort sort = Sort.by("priority").descending().and(
                 Sort.by("name").ascending()
         );
         return repository.findAll(sort);
+    }
+
+    public List<Todo> create(Todo todo){
+        repository.save(todo);
+        return findAll();
     }
 
     public List<Todo> update(Todo todo){

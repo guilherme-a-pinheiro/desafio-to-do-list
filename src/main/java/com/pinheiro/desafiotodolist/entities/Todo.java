@@ -10,8 +10,6 @@ import lombok.Setter;
 @Table(name = "todos")
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class Todo {
 
     @Id
@@ -22,4 +20,14 @@ public class Todo {
     private String description;
     private boolean done;
     private int priority;
+
+    public Todo(){}
+
+    public Todo(Long id, String name, String description, boolean done, int priority) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.done = done;
+        this.priority = priority;
+    }
 }
