@@ -16,7 +16,7 @@ public class Instantiation implements CommandLineRunner {
     public void run(String... args) {
         repository.deleteAll();
 
-        Todo t1 = new Todo(null, "Ir ao mercado", "Fazer a compra da semana no mercado perto de casa", false, 2);
-        repository.save(t1);
+        //Todo t1 = new Todo(null, "Ir ao mercado", "Fazer a compra da semana no mercado perto de casa", false, 2);
+        //repository.save(t1);
     }
 }

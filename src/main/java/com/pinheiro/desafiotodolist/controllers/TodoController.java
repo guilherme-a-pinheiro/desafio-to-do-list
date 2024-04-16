@@ -2,8 +2,10 @@ package com.pinheiro.desafiotodolist.controllers;
 
 import com.pinheiro.desafiotodolist.entities.Todo;
 import com.pinheiro.desafiotodolist.services.TodoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,7 +23,7 @@ public class TodoController {
     }
 
     @PostMapping
-    List<Todo> create(@RequestBody Todo obj){
+    List<Todo> create(@RequestBody @Valid Todo obj){
         service.create(obj);
         return findAll();
     }
